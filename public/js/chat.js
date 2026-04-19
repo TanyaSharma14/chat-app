@@ -179,4 +179,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         msgContainer.appendChild(div);
     }
     const scrollToBottom = () => msgContainer.scrollTop = msgContainer.scrollHeight;
+
+    // Search Filtering feature
+    document.getElementById('global-search').addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const items = document.querySelectorAll('.user-item'); 
+        items.forEach(item => {
+            if (item.innerText.toLowerCase().includes(query)) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
 });
