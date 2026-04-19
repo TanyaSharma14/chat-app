@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chat Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="chat-wrapper">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>💬 ChatApp V3</h3>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; margin-top: 0.5rem;">
+                    <img id="my-profile-pic" src="https://via.placeholder.com/32?text=%F0%9F%91%A4" alt="👤" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; cursor: pointer; border: 1px solid var(--primary-color);" title="Change Profile Picture (Click me)">
+                    <input type="file" id="profile-upload" accept="image/*" class="hidden">
+                    <p style="margin:0;"><strong id="current-user"></strong></p>
+                </div>
+                <div class="header-actions" style="margin-top: 1rem;">
+                    <button class="action-btn" id="logout-btn">Logout</button>
+                    <button class="action-btn" id="new-group-btn" title="Create Group Chat">👥 +Group</button>
+                </div>
+            </div>
+            
+            <div class="user-list" id="group-list" style="border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem; margin-bottom: 0.5rem; flex: 0 0 auto; max-height: 40%;">
+                <!-- Fetched groups populated dynamically here -->
+            </div>
+            <div class="user-list" id="user-list">
+                <!-- Fetched users populated dynamically here -->
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div id="no-chat-overlay" class="overlay">
+                <h3>Select a tracked user from the sidebar to start a secure chat</h3>
+            </div>
+
+            <div class="chat-header">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <h3 id="chatting-with"><span>...</span></h3>
+                    <button class="action-btn hidden" id="rename-group-btn" title="Rename Group" style="border:none; font-size:1.2rem;">✏️</button>
+                </div>
+                <button class="action-btn" id="clear-chat-btn" style="color: #ef4444; border-color: rgba(239,68,68,0.3);">🗑️ Clear Chat</button>
+            </div>
+
+            <div class="messages" id="message-container">
+                <!-- Messages appended here dynamically -->
+            </div>
+            
+            <!-- Typing Indicator Area -->
+            <div class="typing-indicator" id="typing-indicator"></div>
+
+            <form class="input-area" id="chat-form">
+                <!-- Hidden file input triggered by paperclip -->
+                <input type="file" id="file-input" accept="image/*" class="hidden">
+                <button type="button" class="image-upload-btn" id="trigger-file-btn" title="Upload Image">📎</button>
+                
+                <input type="text" id="msg-input" placeholder="Type a message..." autocomplete="off">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

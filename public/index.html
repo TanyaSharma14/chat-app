@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- AUTHENTICATION FORM -->
+    <div class="auth-container">
+        <h2 id="auth-title">Welcome Back</h2>
+        <p id="auth-subtitle">Login to continue to your chats.</p>
+        
+        <div id="error-msg"></div>
+
+        <form id="auth-form">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username" required autocomplete="off">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button class="btn" type="submit" id="auth-btn">Login</button>
+        </form>
+
+        <div class="toggle-text">
+            <span id="toggle-auth">Don't have an account? Register here.</span>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

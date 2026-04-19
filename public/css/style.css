@@ -1,0 +1,133 @@
+/* Append these to existing css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  --bg-color: #0f172a;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --primary-color: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --msg-sent: #8b5cf6;
+  --msg-received: #334155;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body {
+  background-color: var(--bg-color); color: var(--text-main); min-height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+  background-image: radial-gradient(circle at top right, #312e81, transparent 40%),
+                    radial-gradient(circle at bottom left, #1e1b4b, transparent 40%);
+}
+
+.auth-container {
+  background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);
+  padding: 2.5rem; border-radius: 1rem; width: 100%; max-width: 400px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center;
+}
+.auth-container h2 { margin-bottom: 0.5rem; font-weight: 600; }
+.auth-container p { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem; }
+.input-group { margin-bottom: 1.5rem; text-align: left; }
+.input-group input {
+  width: 100%; padding: 0.75rem 1rem; background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border); border-radius: 0.5rem; color: white; outline: none; transition: border 0.3s;
+}
+.input-group input:focus { border-color: var(--primary-color); }
+.btn {
+  width: 100%; padding: 0.75rem; background: var(--primary-color); color: white; border: none;
+  border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: background 0.3s, transform 0.1s;
+}
+.btn:hover { background: var(--primary-hover); }
+.btn:active { transform: scale(0.98); }
+.toggle-text { margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.toggle-text span { color: var(--primary-color); cursor: pointer; font-weight: 600; }
+#error-msg { color: #ef4444; font-size: 0.85rem; margin-bottom: 1rem; min-height: 1.2rem; }
+
+.chat-wrapper {
+  display: flex; width: 95%; max-width: 1200px; height: 90vh;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); overflow: hidden;
+}
+
+.sidebar {
+  width: 300px; border-right: 1px solid var(--glass-border);
+  display: flex; flex-direction: column; background: rgba(15, 23, 42, 0.4);
+}
+.sidebar-header { padding: 1.5rem; border-bottom: 1px solid var(--glass-border); }
+.sidebar-header h3 { color: var(--primary-color); margin-bottom: 0.5rem; }
+
+.user-list { margin-top: 0.5rem; overflow-y: auto; flex: 1; }
+.user-item {
+  padding: 0.75rem 1.5rem; border-bottom: 1px solid var(--glass-border);
+  cursor: pointer; display: flex; align-items: center; gap: 0.75rem; 
+  transition: background 0.3s;
+}
+.user-item:hover { background: rgba(255, 255, 255, 0.05); }
+
+.status-dot { width: 10px; height: 10px; border-radius: 50%; }
+.status-dot.online { background: #10b981; box-shadow: 0 0 5px #10b981; }
+.status-dot.offline { background: #64748b; }
+
+.header-actions { display: flex; gap: 0.5rem; }
+.action-btn {
+  background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border);
+  padding: 0.4rem; border-radius: 0.25rem; cursor: pointer; font-size: 0.8rem;
+}
+.action-btn:hover { background: rgba(255, 255, 255, 0.1); color: white; }
+
+.chat-area { flex: 1; display: flex; flex-direction: column; position: relative; }
+.chat-header {
+  padding: 1.5rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;
+}
+
+.messages {
+  flex: 1; padding: 1.5rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem;
+}
+.message {
+  max-width: 70%; padding: 0.75rem 1rem; border-radius: 1rem; word-wrap: break-word; position: relative; font-size: 0.95rem;
+}
+.message.sent { align-self: flex-end; background: var(--msg-sent); border-bottom-right-radius: 0.25rem; }
+.message.received { align-self: flex-start; background: var(--msg-received); border-bottom-left-radius: 0.25rem; }
+.message-time { display: block; font-size: 0.7rem; opacity: 0.7; margin-top: 0.25rem; text-align: right; }
+
+.msg-image { max-width: 100%; border-radius: 0.5rem; margin-top: 0.5rem; }
+
+.typing-indicator {
+  padding: 0.2rem 1.5rem; font-size: 0.8rem; color: var(--primary-color);
+  font-style: italic; min-height: 1.2rem;
+}
+
+.read-receipt { font-size: 0.7rem; margin-left: 5px; color: #cbd5e1; }
+.read-receipt.read { color: #38bdf8; text-shadow: 0 0 5px #38bdf8;}
+
+.input-area { padding: 1rem 1.5rem; border-top: 1px solid var(--glass-border); display: flex; gap: 1rem; align-items: center;}
+.input-area input[type="text"] {
+  flex: 1; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--glass-border);
+  background: rgba(15, 23, 42, 0.6); color: white; outline: none;
+}
+.input-area input:focus { border-color: var(--primary-color); }
+.input-area button[type="submit"] {
+  padding: 1rem 2rem; background: var(--primary-color); color: white; border: none;
+  border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: background 0.3s;
+}
+.input-area button:hover { background: var(--primary-hover); }
+
+.image-upload-btn {
+  background: transparent; color: var(--primary-color); border: 1px solid var(--glass-border);
+  border-radius: 0.5rem; font-size: 1.2rem; cursor: pointer; padding: 0.8rem 1rem; transition: background 0.3s;
+}
+.image-upload-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+.hidden { display: none !important; }
+
+.overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.95);
+  display: flex; justify-content: center; align-items: center; z-index: 10; backdrop-filter: blur(8px);
+}
+
+/* V3 Polish Additions */
+.unsend-btn { background: transparent; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 0.75rem; margin-left: 0.5rem; transition: 0.3s; }
+.unsend-btn:hover { color: #ef4444; }
+.avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 0.2rem; }
