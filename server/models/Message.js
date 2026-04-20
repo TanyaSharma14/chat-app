@@ -1,13 +1,15 @@
+// a template for every chat message ie how the chat messages will be stored in mongo db
+
 const mongoose = require('mongoose');
 
-const MessageSchema = new mongoose.Schema({
+const MessageSchema = new mongoose.Schema({ // defining what a mesaage document will look like
     roomId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId, // here we are defining the room id and every message will be belonging to a room
         ref: 'Room',
         required: true
     },
     sender: {
-        type: String, // Storing username
+        type: String, // Storing username 
         required: true
     },
     content: {
