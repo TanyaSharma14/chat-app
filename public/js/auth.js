@@ -1,3 +1,4 @@
+//it will handle user registration or login without page refresh  , it will also store the jwt tokens in in browser storage
 document.addEventListener('DOMContentLoaded', () => {
     // If already logged in, redirect
     if (localStorage.getItem('token')) {
