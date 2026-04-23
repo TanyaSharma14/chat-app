@@ -83,16 +83,26 @@ Read receipts
 
 ⚙️ How It Works (Flow)
 User logs in → JWT token generated
+
 Frontend stores token and connects via Socket.IO
+
 Socket is authenticated using JWT
+
 User joins a chat room
+
 Messages are:
+
 Saved in MongoDB
+
 Broadcast instantly via WebSockets
+
 UI updates in real-time without refresh
+
 📦 Setup Instructions
+
 1. Clone the repository
 git clone <repo-link>
+
 cd chat-app
 2. Install dependencies
 cd server
@@ -102,17 +112,23 @@ npm install
 Create a .env file:
 
 MONGO_URI=your_mongodb_connection
+
 JWT_SECRET=your_secret_key
+
 PORT=5000
+
 4. Run the server
 npm run dev
-5. Open in browser
+
+6. Open in browser
 http://localhost:5000
 🧠 Design Decisions
+
 Used Socket.IO instead of polling → reduces latency
 Chose JWT auth → stateless and scalable
 Stored messages in MongoDB → easy schema flexibility
 Optional Redis adapter → supports multi-server scaling
+
 📈 Scalability Considerations
 Stateless backend using JWT
 Horizontal scaling via multiple server instances
