@@ -125,18 +125,29 @@ http://localhost:5000
 🧠 Design Decisions
 
 Used Socket.IO instead of polling → reduces latency
+
 Chose JWT auth → stateless and scalable
+
 Stored messages in MongoDB → easy schema flexibility
+
 Optional Redis adapter → supports multi-server scaling
 
 📈 Scalability Considerations
+
 Stateless backend using JWT
+
 Horizontal scaling via multiple server instances
+
 Redis pub/sub (optional) for cross-instance communication
+
 Load balancing using Nginx
 ------------------------------------------------------------------- 
 🎯 What I Learned
+
 Real-time systems using WebSockets
+
 Authentication and secure API design
+
 Handling async flows between frontend and backend
+
 Designing scalable backend architecture
