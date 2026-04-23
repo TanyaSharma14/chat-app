@@ -9,50 +9,76 @@ It combines REST APIs + WebSockets to handle both structured data flow and insta
 🏗️ Architecture & Tech Stack
 Backend
 Node.js + Express – API handling
+
 Socket.IO – Real-time communication
+
 MongoDB + Mongoose – Database
+
 JWT – Authentication
+
 bcryptjs – Password hashing
+
 Frontend
 HTML, CSS, JavaScript
 Socket.IO client for real-time updates
 Infrastructure (Scalability-Oriented)
 Docker & Docker Compose
 Nginx (load balancing)
+
 Optional Redis for horizontal scaling
 📁 Project Structure
 chat-app/
 ├── server/
 │   ├── server.js        # Main backend + Socket.IO server
+
 │   ├── config/          # DB connection
+
 │   ├── models/          # User, Room, Message schemas
+
 │   ├── routes/          # Auth & chat APIs
+
 │   └── middleware/      # JWT authentication
 ├── public/
+
 │   ├── index.html       # Login/Register UI
+
 │   ├── chat.html        # Chat UI
+
 │   ├── js/              # Frontend logic
+
 │   └── css/             # Styling
+
 ├── nginx/               # Load balancer config
+
 ├── Dockerfile
+
 └── docker-compose.yml
 ✨ Key Features
+
 🔥 Real-Time Messaging
 Instant message delivery using Socket.IO
+
 Typing indicators
 Message read/delivery status
+
 👤 User Management
 Secure login & registration using JWT
+
 Password hashing with bcrypt
+
 Online/offline status tracking
 💬 Chat System
 Private one-on-one chats
+
 Group chat support
+
 Message history retrieval
 📎 Advanced Features
+
 Image/file sharing
 Message deletion (unsend)
 Read receipts
+
 ------------------------------------------------------------------- 
 
 ⚙️ How It Works (Flow)
